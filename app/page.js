@@ -4,59 +4,116 @@ import { Box, Stack, TextField, Button } from "@mui/material";
 import { useState } from "react";
 
 export default function Home() {
-    const [messages, setMessages] = useState([
-      {
-        "role": "model",
-        "parts": [{text: "Hi, I'm the Rate My Professor Support assistant. How can i help you today?"}]
-      }
-    ])
-    
-    const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([
+    {
+      "role": "model",
+      "parts": [{text: "Hi, I'm the Rate My Professor Support assistant. How can I help you today?"}]
+    }
+  ])
+  
+  const [message, setMessage] = useState('');
 
-    const sendMessage = async () => {
-      setMessages((messages)=>[
+  const sendMessage = async () => {
+    // creates a copy of messages and adds the user model placeholder
+    const updatedMessages = [
       ...messages,
-      {role: "user", parts: [{text: message}] },
-      {role: "model", parts: [{text: ''}] }
-    ])
-    
+      { role: "user", parts: [{ text: message }] },
+      { role: "model", parts: [{ text: '' }] }
+    ];
 
-    setMessage('')
+    // update state w/ new messages
+    setMessages(updatedMessages);
+    setMessage(''); // Clear the input field
 
     const response = fetch('api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify([...messages, {role: "user", parts: [{text: message}] }])
-    }).then(async (res)=>{
-      console.log("RESULT AFTER FETCH: " + res)
+      body: JSON.stringify(updatedMessages)
+    }).then(async (res) => {
+      // console.log("RESULT AFTER FETCH: " + res);
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
 
       let result = '';
-      return reader.read().then(function processText({done, value}){
-        if(done){
-          return result
+      return reader.read().then(function processText({ done, value }) {
+        if (done) {
+          return result;
         }
 
-        const text = decoder.decode(value || new Uint8Array(), {stream: true})
+        const text = decoder.decode(value || new Uint8Array(), { stream: true });
 
-        console.log("TEXT", text)
-      setMessages((messages)=>{
-        let lastMessage = messages[messages.length - 1]
-        let otherMessages = messages.slice(0, messages.length - 1)
+        // console.log("TEXT", text);
+        
+        setMessages((messages) => {
+          let lastMessage = messages[messages.length - 1];
+          let otherMessages = messages.slice(0, messages.length - 1);
 
-        console.log("LAST MESSAGE", lastMessage.parts[0].text);
-        return [
-          ...otherMessages,
-          {...lastMessage, parts: lastMessage.parts[0].text + text},
-        ]
-      })
+          // console.log("LAST MESSAGE", lastMessage.parts[0].text);
+          return [
+            ...otherMessages,
+            { ...lastMessage, parts: [{ text: lastMessage.parts[0].text + text }] },
+          ];
+        });
 
-      return reader.read().then(processText)
-    })
-  })
+        return reader.read().then(processText);
+      });
+    });
+  //   const [messages, setMessages] = useState([
+  //     {
+  //       "role": "model",
+  //       "parts": [{text: "Hi, I'm the Rate My Professor Support assistant. How can i help you today?"}]
+  //     }
+  //   ])
+    
+  //   const [message, setMessage] = useState('');
+
+  //   const sendMessage = async () => {
+  //     setMessages((messages)=>[
+  //     ...messages,
+  //     {role: "user", parts: [{text: message}] },
+  //     {role: "model", parts: [{text: ''}] }
+  //   ])
+    
+
+  //   setMessage('')
+
+  //   const response = fetch('api/chat', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify([...messages, {role: "user", parts: [{text: message}] }])
+  //   }).then(async (res)=>{
+  //     console.log("RESULT AFTER FETCH: " + res)
+  //     const reader = res.body.getReader();
+  //     const decoder = new TextDecoder();
+
+  //     let result = '';
+  //     return reader.read().then(function processText({done, value}){
+  //       if(done){
+  //         return result
+  //       }
+
+  //       const text = decoder.decode(value || new Uint8Array(), {stream: true})
+
+  //       console.log("TEXT", text)
+
+  //     setMessages((messages)=>{
+  //       let lastMessage = messages[messages.length - 1]
+  //       let otherMessages = messages.slice(0, messages.length - 1)
+
+  //       console.log("LAST MESSAGE", lastMessage.parts[0].text);
+  //       return [
+  //         ...otherMessages,
+  //         {...lastMessage, parts: lastMessage.parts[0].text + text},
+  //       ]
+  //     })
+
+  //     return reader.read().then(processText)
+  //   })
+  // })
 
 }
   

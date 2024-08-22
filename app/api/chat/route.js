@@ -76,9 +76,9 @@ export async function POST(req){
     const lastMessageContent = lastMessage.parts[0].text + resultString
     const lastDataWithoutLastMessage = data.slice(0, data.length - 1)
 
-    console.log("LAST MESSAGE", lastMessage);
-    console.log("LAST MESSAGE CONTENT", lastMessageContent);
-    console.log("LAST DATA WITRHOUT LAST MESSAGE", lastDataWithoutLastMessage);
+    // console.log("LAST MESSAGE", lastMessage);
+    // console.log("LAST MESSAGE CONTENT", lastMessageContent);
+    // console.log("LAST DATA WITRHOUT LAST MESSAGE", lastDataWithoutLastMessage);
 
 
     // const conversation = `${systemPrompt}\n\nUser: ${userMessage}`;
@@ -109,25 +109,15 @@ export async function POST(req){
 
     // console.log("RESPONSE", response.response.text());
 
-    // const result = await generativeModel.generateContentStream(request);
-    // for await (const item of result.stream) {
-    //   console.log(item.candidates[0].content.parts[0].text);
-    // }
-
-
     const stream = new ReadableStream({
         async start(controller){
             const encoder = new TextEncoder();
             try{
-                console.log("BEFOREEEE");
-
                 const result = await genModel.generateContentStream(response.response.text());
 
-                console.log("AFTERRRR");
-                
                 for await (const chunk of result.stream){
-                    console.log("IN THE FOR LOOP")
-                    const content = chunk.candidates[0].content;
+                    // console.log("IN THE FOR LOOP")
+                    const content = chunk.candidates[0].content.parts[0].text;
 
                     if(content){
                         const text = encoder.encode(content);
@@ -144,35 +134,7 @@ export async function POST(req){
         }
     })
 
-    console.log("STREAM", stream);
-
-
-
-    // const controller = new AbortController();
-    // const signal = controller.signal;
-
-    // const stream = new ReadableStream({
-    //     async start(controller) {
-    //         try {
-    //             console.log("BEFOREEEE")
-    //             const result = await model.generateContentStream(completion, { signal });
-
-    //             console.log("AFTERRRR")
-
-    //             const encoder = new TextEncoder();
-
-    //             for await (const chunk of result.stream) {
-    //                 const chunkText = chunk.text();
-    //                 controller.enqueue(encoder.encode(chunkText));
-    //             }
-
-    //             controller.close();
-    //         } catch (error) {
-    //             console.error('Error generating content:', error);
-    //             controller.error(error);
-    //         }
-    //     },
-    // });
+    // console.log("STREAM", stream);
 
     return new NextResponse(stream);
 }
