@@ -1,0 +1,125 @@
+{
+    "reviews": [
+      {
+        "professor": "Dr. John Smith",
+        "subject": "Physics",
+        "stars": 4,
+        "review": "Dr. Smith is very knowledgeable and explains concepts clearly. His lectures are engaging, but his exams are tough."
+      },
+      {
+        "professor": "Prof. Emily Johnson",
+        "subject": "Mathematics",
+        "stars": 5,
+        "review": "Prof. Johnson is amazing! She makes complex topics simple and is always willing to help after class."
+      },
+      {
+        "professor": "Dr. Robert Brown",
+        "subject": "Chemistry",
+        "stars": 3,
+        "review": "Dr. Brown's lectures can be a bit dry, but the material is well-organized. His lab sessions are more interesting."
+      },
+      {
+        "professor": "Prof. Susan Miller",
+        "subject": "History",
+        "stars": 5,
+        "review": "Prof. Miller is a fantastic storyteller. She brings history to life with her engaging lectures."
+      },
+      {
+        "professor": "Dr. Michael Davis",
+        "subject": "Computer Science",
+        "stars": 2,
+        "review": "Dr. Davis knows his stuff, but his teaching style is very technical and hard to follow. Wouldn't recommend if you're new to programming."
+      },
+      {
+        "professor": "Prof. Linda Wilson",
+        "subject": "English Literature",
+        "stars": 4,
+        "review": "Prof. Wilson is passionate about literature and encourages deep analysis. Her assignments are challenging but rewarding."
+      },
+      {
+        "professor": "Dr. James Taylor",
+        "subject": "Biology",
+        "stars": 3,
+        "review": "Dr. Taylor's lectures are informative, but he tends to go off on tangents. The exams are fair, but the grading is strict."
+      },
+      {
+        "professor": "Prof. Karen Lee",
+        "subject": "Economics",
+        "stars": 5,
+        "review": "Prof. Lee is excellent at making economics interesting and relatable. Her classes are a must-take!"
+      },
+      {
+        "professor": "Dr. William Harris",
+        "subject": "Political Science",
+        "stars": 4,
+        "review": "Dr. Harris encourages critical thinking and class discussions. His exams are tough, but he's fair."
+      },
+      {
+        "professor": "Prof. Jessica Clark",
+        "subject": "Psychology",
+        "stars": 5,
+        "review": "Prof. Clark is a wonderful instructor. Her lectures are engaging, and she is very approachable for help."
+      },
+      {
+        "professor": "Dr. Richard Martinez",
+        "subject": "Philosophy",
+        "stars": 3,
+        "review": "Dr. Martinez's lectures are thought-provoking but can be a bit abstract. Not an easy A, but you'll learn a lot."
+      },
+      {
+        "professor": "Prof. Barbara Lewis",
+        "subject": "Sociology",
+        "stars": 4,
+        "review": "Prof. Lewis is very knowledgeable and makes the material relevant to today's society. Her classes are insightful."
+      },
+      {
+        "professor": "Dr. Charles Walker",
+        "subject": "Anthropology",
+        "stars": 2,
+        "review": "Dr. Walker's lectures are very dense and hard to follow. Not the best for students new to anthropology."
+      },
+      {
+        "professor": "Prof. Margaret Allen",
+        "subject": "Art History",
+        "stars": 5,
+        "review": "Prof. Allen is passionate about art and her enthusiasm is contagious. Her classes are a visual treat."
+      },
+      {
+        "professor": "Dr. Thomas Young",
+        "subject": "Engineering",
+        "stars": 3,
+        "review": "Dr. Young's classes are challenging, and he doesn't offer much help outside of lectures. You need to be self-motivated."
+      },
+      {
+        "professor": "Prof. Sarah King",
+        "subject": "Music Theory",
+        "stars": 4,
+        "review": "Prof. King is great at breaking down complex musical concepts. Her classes are both challenging and fun."
+      },
+      {
+        "professor": "Dr. Frank Hernandez",
+        "subject": "Physics",
+        "stars": 4,
+        "review": "Dr. Hernandez makes physics approachable and interesting. He is always willing to help students understand difficult concepts."
+      },
+      {
+        "professor": "Prof. Deborah Moore",
+        "subject": "Chemistry",
+        "stars": 5,
+        "review": "Prof. Moore is an excellent teacher. Her labs are well-organized, and she explains the material clearly."
+      },
+      {
+        "professor": "Dr. Kevin Garcia",
+        "subject": "Mathematics",
+        "stars": 2,
+        "review": "Dr. Garcia's lectures are very technical and hard to follow. His exams are difficult, and he doesn't curve grades."
+      },
+      {
+        "professor": "Prof. Anna Thomas",
+        "subject": "History",
+        "stars": 5,
+        "review": "Prof. Thomas is incredibly knowledgeable and makes history fascinating. Her exams are tough, but fair."
+      }
+    ]
+  }
+  
