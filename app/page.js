@@ -183,12 +183,9 @@ export default function Home() {
     },
   }}
 />
-          <Button
-            variant="contained"
-            onClick={sendMessage}
-          >
-            Send
-          </Button>
+
+          <Button variant="contained" disabled={message.trim() == ''} onClick={sendMessage}>Send</Button>
+
           
         </Stack>
       </Stack>
